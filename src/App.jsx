@@ -46,7 +46,7 @@ function App() {
                       }
                     }}
                     style={{ width: '100%' }}
-                    facingMode={'environment'}
+                    facingMode={'user'}
                   />
                 </>
               )}
