@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
-import { Html5QrcodeScanner } from 'html5-qrcode';
 
 export default function App2() {
   const [data, setData] = useState(null);
@@ -22,9 +21,21 @@ export default function App2() {
   }, []);
 
   return (
-    <div className="overflow-hidden">
-      <div id="qrcode-reader" ref={qrcodeRef}></div>
-      <h2>Code:{data}</h2>
+    <div className="relative">
+      <div id="qrcode-reader" className="" ref={qrcodeRef}></div>
+      <div className=" absolute inset-0 text-center py-16">
+        <h2 className="text-xl lg:text-4xl cursor-pointer text-[#28ABE2]  font-medium uppercase">
+          Suamarca
+        </h2>
+        <h2 className="text-lg pt-16 lg:text-4xl font-bold text-white ">
+          Confirme aqui seu pagamento
+        </h2>
+      </div>
+      <div className=" absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-[80%]">
+        <h4 className="text-2xl text-center  font-semibold text-white">
+          Aponte o QR Code de sua comanda para a camera : {data}
+        </h4>
+      </div>
     </div>
   );
 }

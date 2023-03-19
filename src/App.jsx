@@ -1,11 +1,9 @@
 import './App.css';
 import { useState } from 'react';
-import QrCodeScanner from './components/QrCodeScanner';
-import classNames from 'classnames';
-import { QrReader } from 'react-qr-reader';
+
+import App2 from './App2';
 function App() {
   const [isQrCode, setIsQrcode] = useState(false);
-  const [data, setData] = useState('No result');
 
   return (
     <div className={`-z-10 `}>
@@ -26,20 +24,7 @@ function App() {
             <div className="">
               {
                 <>
-                  <QrReader
-                    scanDelay={300}
-                    onResult={(result, error) => {
-                      if (!!result) {
-                        setData(result?.text);
-                      }
-
-                      if (!!error) {
-                        console.info(error);
-                      }
-                    }}
-                    style={{ width: '100%' }}
-                    constraints={{ facingMode: 'environment' }}
-                  />
+                  <App2 />
                 </>
               }
             </div>
