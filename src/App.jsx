@@ -24,7 +24,11 @@ export default function App2() {
     <div className="relative overflow-hidden">
       <div id="qrcode-reader" className="mx-auto " ref={qrcodeRef}></div>
       <div className=" absolute inset-0 text-center py-5">
-        <img className="block mx-auto object-cover " src="/logo.webp" alt="" />
+        <img
+          className="block w-[100px] lg:w-[320px] mx-auto object-cover "
+          src="/logo.webp"
+          alt=""
+        />
         <h2 className="text-lg lg:pt-16 lg:text-4xl font-bold text-white ">
           Confirme aqui seu pagamento
         </h2>
