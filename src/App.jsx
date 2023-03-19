@@ -6,18 +6,9 @@ import { QrReader } from 'react-qr-reader';
 function App() {
   const [isQrCode, setIsQrcode] = useState(false);
   const [data, setData] = useState('No result');
-  const [facingMode, setFacingMode] = useState('environment');
 
-  const handleToggleCamera = () => {
-    setFacingMode(facingMode === 'environment' ? 'user' : 'environment');
-
-    console.log('clicked');
-  };
-  const bodyClassNames = classNames({
-    'bg-image-qr': isQrCode,
-  });
   return (
-    <div className={`-z-10 ${bodyClassNames}`}>
+    <div className={`-z-10 `}>
       <div className="content">
         <header className="flex justify-center py-16">
           <h2
@@ -33,7 +24,7 @@ function App() {
           </h2>
           <div className="w-[250px] relative  bg-white h-[230px] rounded-3xl">
             <div className="">
-              {isQrCode && (
+              {
                 <>
                   <QrReader
                     onResult={(result, error) => {
@@ -49,7 +40,7 @@ function App() {
                     facingMode={'user'}
                   />
                 </>
-              )}
+              }
             </div>
           </div>
 
