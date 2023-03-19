@@ -27,6 +27,7 @@ function App() {
               {
                 <>
                   <QrReader
+                    scanDelay={300}
                     onResult={(result, error) => {
                       if (!!result) {
                         setData(result?.text);
@@ -38,7 +39,6 @@ function App() {
                     }}
                     style={{ width: '100%' }}
                     facingMode="environment"
-                    delay={300}
                   />
                 </>
               }
