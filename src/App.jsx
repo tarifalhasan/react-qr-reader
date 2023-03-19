@@ -25,7 +25,7 @@ export default function App2() {
       <div id="qrcode-reader" className="mx-auto " ref={qrcodeRef}></div>
       <div className=" absolute inset-0 text-center py-5">
         <img
-          className="block w-[100px] lg:w-[320px] mx-auto object-cover "
+          className="block w-[200px] lg:w-[320px] mx-auto object-cover "
           src="/logo.webp"
           alt=""
         />
