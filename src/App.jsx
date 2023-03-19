@@ -38,7 +38,7 @@ function App() {
                       }
                     }}
                     style={{ width: '100%' }}
-                    constraints="environment"
+                    constraints={{ facingMode: 'environment' }}
                   />
                 </>
               }
