@@ -21,12 +21,8 @@ export default function App2() {
   }, []);
 
   return (
-    <div className="relative">
-      <div
-        id="qrcode-reader"
-        className="mx-auto flex justify-center"
-        ref={qrcodeRef}
-      ></div>
+    <div className="relative overflow-hidden">
+      <div id="qrcode-reader" className="mx-auto " ref={qrcodeRef}></div>
       <div className=" absolute inset-0 text-center py-16">
         <h2 className="text-xl lg:text-4xl cursor-pointer text-[#28ABE2]  font-medium uppercase">
           Suamarca
