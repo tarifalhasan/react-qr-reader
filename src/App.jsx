@@ -37,7 +37,8 @@ function App() {
                       }
                     }}
                     style={{ width: '100%' }}
-                    facingMode={'user'}
+                    facingMode="environment"
+                    delay={300}
                   />
                 </>
               }
