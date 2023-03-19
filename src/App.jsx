@@ -23,10 +23,8 @@ export default function App2() {
   return (
     <div className="relative overflow-hidden">
       <div id="qrcode-reader" className="mx-auto " ref={qrcodeRef}></div>
-      <div className=" absolute inset-0 text-center py-16">
-        <h2 className="text-xl lg:text-4xl cursor-pointer text-[#28ABE2]  font-medium uppercase">
-          Suamarca
-        </h2>
+      <div className=" absolute inset-0 text-center py-5">
+        <img className="block mx-auto object-cover " src="/logo.webp" alt="" />
         <h2 className="text-lg lg:pt-16 lg:text-4xl font-bold text-white ">
           Confirme aqui seu pagamento
         </h2>
