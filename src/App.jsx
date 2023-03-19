@@ -1,42 +1,45 @@
-import './App.css';
-import { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Html5Qrcode } from 'html5-qrcode';
 
-import App2 from './App2';
-function App() {
-  const [isQrCode, setIsQrcode] = useState(false);
+export default function App2() {
+  const [data, setData] = useState(null);
+  const qrcodeRef = useRef(null);
+
+  useEffect(() => {
+    const html5Qrcode = new Html5Qrcode('qrcode-reader');
+    html5Qrcode.start(
+      { facingMode: 'environment' },
+      { fps: 10, qrbox: 250 },
+      qrCodeMessage => {
+        console.log(`QR code detected: ${qrCodeMessage}`);
+        setData(qrCodeMessage);
+      },
+      errorMessage => {
+        console.log(`Error: ${errorMessage}`);
+      }
+    );
+  }, []);
 
   return (
-    <div className={`-z-10 `}>
-      <div className="content">
-        <header className="flex justify-center py-16">
-          <h2
-            onClick={() => setIsQrcode(!isQrCode)}
-            className="text-xl lg:text-4xl cursor-pointer text-[#28ABE2]  font-medium uppercase"
-          >
-            Suamarca
-          </h2>
-        </header>
-        <main className="flex gap-y-8 flex-col items-center">
-          <h2 className="text-lg lg:text-4xl font-bold text-white ">
-            Confirme aqui seu pagamento
-          </h2>
-          <div className="w-[250px] relative  bg-white h-[230px] rounded-3xl">
-            <div className="">
-              {
-                <>
-                  <App2 />
-                </>
-              }
-            </div>
-          </div>
-
-          <p className="text-2xl font-semibold text-white">
-            Aponte o QR Code de sua comanda para a camera
-          </p>
-        </main>
+    <div className="relative">
+      <div
+        id="qrcode-reader"
+        className="mx-auto flex justify-center"
+        ref={qrcodeRef}
+      ></div>
+      <div className=" absolute inset-0 text-center py-16">
+        <h2 className="text-xl lg:text-4xl cursor-pointer text-[#28ABE2]  font-medium uppercase">
+          Suamarca
+        </h2>
+        <h2 className="text-lg lg:pt-16 lg:text-4xl font-bold text-white ">
+          Confirme aqui seu pagamento
+        </h2>
+      </div>
+      <div className=" absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:top-[80%] top-[90%]">
+        <h4 className="text-lg lg:text-2xl text-center  font-semibold text-white">
+          Aponte o QR Code de sua comanda para a camera : {data}
+        </h4>
       </div>
     </div>
   );
 }
-
-export default App;
